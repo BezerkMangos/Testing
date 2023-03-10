@@ -98,51 +98,47 @@ public class PlayerMovement : MonoBehaviour
             #endregion
         //Active^
 
-        //Run / Dash
+        //Run 
         if (Input.GetKey(KeyCode.LeftShift))
         {
             Dash();
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    { 
-        if (collision.gameObject.tag == "PlantTile")
-        {
-            canPlant = true;
-            plantTileSpawn = collision.gameObject;
-            Debug.Log("Can Plant");
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "PlantTile")
-        {
-            canPlant = false;
-            Debug.Log("Can no Longer Plant");
-
-        }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
+        //Planting
         if (Input.GetMouseButtonDown(0) && canPlant == true)
         {
             Plant();
         }
-
     }
 
-    void Dash()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "PlantTile")
+        {
+            canPlant = true;
+            plantTileSpawn = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "PlantTile")
+        {
+            canPlant = false;
+        }
+    }
+
+    
+
+
+void Dash()
     {
         transform.Translate(movementDirection.normalized * dashSpeed * Time.deltaTime);
     }
 
     void Plant()
     {
-       Instantiate(plantGameObject, plantTileSpawn.transform.position, new Quaternion(0, 0, 0, 0));
-        Debug.Log("Planted");
+       Instantiate(plantGameObject,new Vector3(plantTileSpawn.transform.position.x,0.3f, plantTileSpawn.transform.position.z), new Quaternion(0, 0, 0, 0));
+
     }
 
 }

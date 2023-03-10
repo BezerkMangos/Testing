@@ -57,10 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\PlayerProperties.cs" />
-    <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Boss\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\PlantTile.cs" />
+    <Compile Include="Assets\Scripts\Plants\PlantTile.cs" />
     <Compile Include="Assets\Scripts\Player\CameraMovment.cs" />
+    <Compile Include="Assets\Scripts\Boss\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Plants\Plants\BasicPlantProjectile.cs" />
+    <Compile Include="Assets\Scripts\Plants\Plants\BasicPlantProperties.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

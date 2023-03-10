@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlantTile
+  - Bullet
+  - Map
+  - Enemy
+  - PlantMan
   layers:
   - Default
   - TransparentFX
